@@ -1,0 +1,56 @@
+<!DOCTYPE html><html lang="zh-CH"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="何为CDN"><meta name="keywords" content="CDN,性能优化"><meta name="author" content="Yang Wa"><meta name="copyright" content="Yang Wa"><title>何为CDN | Yang Wa</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.1"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  hexoVersion: '5.4.2'
+} </script><meta name="generator" content="Hexo 5.4.2"></head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#CDN"><span class="toc-number">1.</span> <span class="toc-text">CDN</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://qianrui-xiaoyang.oss-cn-hangzhou.aliyuncs.com/img/blog/avatar.jpeg"></div><div class="author-info__name text-center">Yang Wa</div><div class="author-info__description text-center">Who killed me, and I killed who</div><div class="follow-button"><a href="">Follow Me</a></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">8</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">18</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">8</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://qianrui-xiaoyang.oss-cn-hangzhou.aliyuncs.com/img/blog/bg-6.jpeg)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Yang Wa</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a><a class="site-page" href="/xxx">XXX</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">何为CDN</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2022-11-07</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">性能优化</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/CDN/">CDN</a><div class="post-meta-wordcount"><span>Word count: </span><span class="word-count">680</span><span class="post-meta__separator">|</span><span>Reading time: 2 min</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h3 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h3><ol>
+<li><p>最近在了解前端性能优化这方面的问题，之前一直听过CDN可以优化性能，但是对其原理还是一知半解，但是最近的一篇文章，让我对其原理有了较为深入的了解，</p>
+</li>
+<li><p>以下为我自己的总结</p>
+<ol>
+<li><p>CDN是为了优化性能而存在的，怎么优化性能呢？</p>
+<ul>
+<li><p>将静态资源部署到CDN上</p>
+</li>
+<li><p>用户访问时离用户最近的CDN进行资源的派发，从而就可以提高速度。</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>​     但是此时会有个问题，怎么判断哪个离用户近呢？</p>
+<ol start="2">
+<li><p>在了解怎么判断哪个离用户近之前，先了解一下其他信息</p>
+<ul>
+<li>DNS域名解析器，就是通过你输入的域名来解析对应的IP地址，比如你访问 abc.baidu.com,域名解析器会将其解析成10.1.1.1这种类型的IP地址，然后进行访问。但是有的域名还会有别名(CNAME)，例如abc.baidu.com有个别名123.baidu.com,当你访问123.baidu.com，DNS将其解析成adc.baidu.com,然后再解析成IP地址10.1.1.1。也就是说DNS会将域名解析成另外一个域名或者将其解析成一个IP地址。</li>
+<li>现在有许多CDN供应商，阿里，腾讯，只要自己的系统接入了CDN服务，将自己的静态资源上传到CDN服务，那么静态资源就会自动分发到世界各地去。</li>
+</ul>
+</li>
+<li><p>了解上面的知识后，现在来说怎么判断哪个资源IP离用户近</p>
+<ul>
+<li><p>用户访问静态资源通过域名进行访问，DNS需要找离用户最近的IP供用户访问。普通DNS做不到，所以需要一个特殊的DNS，这个DNS需要实现两个功能</p>
+<ol>
+<li>我们需要知道用户的位置，</li>
+<li>其访问域名对应哪些IP，以及这些IP分别在哪，</li>
+</ol>
+<p>针对第一个问题，在用户请求中可以提取到，第二个问题，CDN供应商肯定知道其部署机器的位置以及他们的IP。所以这个问题只能CDN供应商来解决，CDN供应商提供了这个特殊的DNS服务器-CDN专用DNS服务器。</p>
+</li>
+</ul>
+</li>
+<li><p>实现：</p>
+<ul>
+<li>当用户访问123.baidu.com时，它对应一个别名cdn.ali.com，普通的DNS将123.baidu.com解析成cdn.ali.com，该域名对应的也是DNS服务器，所以会将解析任务交给这个CDN专用DNS服务器。特殊的DNS解析器对cdn.ali.com进行解析，根据服务器上所有服务器地址信息。选择离用户最近的服务器地址返回给用户即可。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Yang Wa</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2022/11/07/何为CDN/">http://example.com/2022/11/07/何为CDN/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/CDN/">CDN</a><a class="post-meta__tags" href="/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">性能优化</a></div><nav id="pagination"><div class="next-post pull-right"><a href="/2022/10/11/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%B1%BB%E9%97%AE%E9%A2%98/"><span>动态规划类问题</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer class="footer-bg" style="background-image: url(https://qianrui-xiaoyang.oss-cn-hangzhou.aliyuncs.com/img/blog/bg-6.jpeg)"><div class="layout" id="footer"><div class="copyright">&copy;2022 By Yang Wa</div><div class="framework-info"><span>Driven - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/lib/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.1"></script><script src="/js/fancybox.js?version=1.9.1"></script><script src="/js/sidebar.js?version=1.9.1"></script><script src="/js/copy.js?version=1.9.1"></script><script src="/js/fireworks.js?version=1.9.1"></script><script src="/js/transition.js?version=1.9.1"></script><script src="/js/scroll.js?version=1.9.1"></script><script src="/js/head.js?version=1.9.1"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>
