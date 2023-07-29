@@ -1,0 +1,81 @@
+<!DOCTYPE html><html lang="zh-CH"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="动态规划类问题"><meta name="keywords" content="算法,动态规划"><meta name="author" content="Yang Wa"><meta name="copyright" content="Yang Wa"><title>动态规划类问题 | Yang Wa</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.9.1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.9.1"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  hexoVersion: '5.4.2'
+} </script><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="Yang Wa" type="application/atom+xml">
+</head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="toc-number">1.</span> <span class="toc-text">什么是动态规划</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.</span> <span class="toc-text">动态规划问题求解步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92leetcode%E9%A2%98%E7%9B%AE"><span class="toc-number">3.</span> <span class="toc-text">动态规划leetcode题目</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97"><span class="toc-number">3.1.</span> <span class="toc-text">斐波那契数列</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%88%AC%E6%A5%BC%E6%A2%AF"><span class="toc-number">3.2.</span> <span class="toc-text">爬楼梯</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%8D%E5%90%8C%E8%B7%AF%E5%BE%84"><span class="toc-number">3.3.</span> <span class="toc-text">不同路径</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%82%A1%E7%A5%A8%E9%97%AE%E9%A2%98III-https-leetcode-cn-problems-best-time-to-buy-and-sell-stock-iii-submissions"><span class="toc-number">3.4.</span> <span class="toc-text">[股票问题III][https:&#x2F;&#x2F;leetcode.cn&#x2F;problems&#x2F;best-time-to-buy-and-sell-stock-iii&#x2F;submissions&#x2F;]</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98"><span class="toc-number">3.5.</span> <span class="toc-text">背包问题</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#0-1%E8%83%8C%E5%8C%85"><span class="toc-number">3.5.1.</span> <span class="toc-text">0-1背包</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85"><span class="toc-number">3.5.2.</span> <span class="toc-text">完全背包</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85"><span class="toc-number">3.5.3.</span> <span class="toc-text">多重背包</span></a></li></ol></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://qianrui-xiaoyang.oss-cn-hangzhou.aliyuncs.com/img/blog/avatar.jpeg"></div><div class="author-info__name text-center">Yang Wa</div><div class="author-info__description text-center">Who killed me, and I killed who</div><div class="follow-button"><a href="">Follow Me</a></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">16</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">30</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">19</span></a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://qianrui-xiaoyang.oss-cn-hangzhou.aliyuncs.com/img/blog/5.jpeg)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">Yang Wa</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a><a class="site-page" target="_blank" rel="noopener" href="https://github.com/bojiguowang/">Github</a></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title">动态规划类问题</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2022-10-11</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E7%AE%97%E6%B3%95/">算法</a><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a><span class="post-meta__separator">|</span><i class="fa fa-comment-o post-meta__icon" aria-hidden="true"></i><a href="/2022/10/11/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%B1%BB%E9%97%AE%E9%A2%98/#disqus_thread"><span class="disqus-comment-count" data-disqus-identifier="2022/10/11/动态规划类问题/"></span></a><div class="post-meta-wordcount"><span>Word count: </span><span class="word-count">811</span><span class="post-meta__separator">|</span><span>Reading time: 3 min</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h4 id="什么是动态规划"><a href="#什么是动态规划" class="headerlink" title="什么是动态规划"></a>什么是动态规划</h4><ul>
+<li>动态规划：类似于数学归纳法，当我们知道n-1的所有情况，那么就可以推出n的情况</li>
+</ul>
+<h4 id="动态规划问题求解步骤"><a href="#动态规划问题求解步骤" class="headerlink" title="动态规划问题求解步骤"></a>动态规划问题求解步骤</h4><ol>
+<li>dp(状态转移)数组以及其下标的含义</li>
+<li>递推公式</li>
+<li>dp数组如何初始化</li>
+<li>遍历顺序</li>
+<li>打印dp数组(检查问题)</li>
+</ol>
+<h4 id="动态规划leetcode题目"><a href="#动态规划leetcode题目" class="headerlink" title="动态规划leetcode题目"></a>动态规划leetcode题目</h4><h5 id="斐波那契数列"><a href="#斐波那契数列" class="headerlink" title="斐波那契数列"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/fibonacci-number/">斐波那契数列</a></h5><ol>
+<li>i代表第i个斐波那契数，dp[i]代表第i个斐波那契数的值</li>
+<li>dp[i] = dp[i-1] + dp[i-2]</li>
+<li>dp[0] = 0 , dp[1] = 1</li>
+<li>从前向后遍历</li>
+</ol>
+<h5 id="爬楼梯"><a href="#爬楼梯" class="headerlink" title="爬楼梯"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/climbing-stairs/">爬楼梯</a></h5><ol>
+<li>i代表第几层，dp[i]代表到达第i层有dp[i]中方法</li>
+<li>dp[i] = dp[i-1] + dp[i-2]</li>
+<li>dp[1] = 1,dp[2] = 2</li>
+<li>从前向后遍历</li>
+</ol>
+<h5 id="不同路径"><a href="#不同路径" class="headerlink" title="不同路径"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/unique-paths/">不同路径</a></h5><ol>
+<li>dp数组及其含义：dp[i][j]代表到达[i][j]的位置有dp[i][j]种方法</li>
+<li>递推公式：每个位置只能由其上边和左边到达，所以dp[i][j] = dp[i-1][j] + dp[i][j-1]</li>
+<li>初始化数组：由于dp[i][0]和dp[0][j]的位置只能由其上边或者左边到达，所以只有一种方法，故将dp[i][0]和dp[0][j]都初始化为1</li>
+<li>遍历顺序：从行到列</li>
+</ol>
+<h5 id="股票问题III-https-leetcode-cn-problems-best-time-to-buy-and-sell-stock-iii-submissions"><a href="#股票问题III-https-leetcode-cn-problems-best-time-to-buy-and-sell-stock-iii-submissions" class="headerlink" title="[股票问题III][https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iii/submissions/]"></a>[股票问题III][<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iii/submissions/]">https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iii/submissions/]</a></h5><ol>
+<li>dp数组及其含义：由于限制只能买卖两次，所以每一天的状态包含五种，<ul>
+<li>dp[i][0]表示：第i天啥也不干的所剩最多现金</li>
+<li>dp[i][1]表示：第i天第一次买入股票所剩最多现金</li>
+<li>dp[i][2]表示：第i天第一次卖出股票(完成第一笔交易)所剩最多现金</li>
+<li>dp[i][3]表示：第i天第二次买入股票所剩最多现金</li>
+<li>dp[i][4]表示：第i天第二次卖出股票(完成第二笔交易)所剩最多现金</li>
+</ul>
+</li>
+<li>递推公式<ul>
+<li>dp[i][0] = dp[i-1][0]，第i天啥也不干，所剩最多现金就是前一天啥也不干留下来的最多现金</li>
+<li>dp[i][1] = Math.max(dp[i-1][1] , dp[i-1][0]-prices[i]),第i天状态为第一次买入，所剩最大现金为：前一天第一次买入，今天啥也不干或者昨天啥也没干，买入今天股票</li>
+<li>dp[i][2] = Math.max(dp[i-1][2] , dp[i-1][1]+prices[i]),第i天状态为第一次卖出股票，所剩最大现金为：前一天已经完成第一次交易，今天啥也不干或者昨天第一次买入的状态所剩最大现金加上今天股票的价格</li>
+<li>dp[i][3] = Math.max(dp[i-1][3] , dp[i-1][2]-prices[i])同理</li>
+<li>dp[i][4] = Math.max(dp[i-1][4] , dp[i-1][3]-prices[i])同理</li>
+</ul>
+</li>
+<li>初始化数组：<ul>
+<li>dp[0][0] = 0</li>
+<li>dp[0][1] = -prices[0]</li>
+<li>dp[0][2] = 0 第一天买入又卖出，利润为0</li>
+<li>dp[0][3] = -prices[0] ,第二次买入的状态也为-prices[0],可以理解为第一天买入，卖出，又买入</li>
+<li>dp[0][4] = 0 第一天买入，卖出，又买入，又卖出，利润为0</li>
+</ul>
+</li>
+<li>遍历顺序，直接遍历</li>
+</ol>
+<h5 id="背包问题"><a href="#背包问题" class="headerlink" title="背包问题"></a>背包问题</h5><h6 id="0-1背包"><a href="#0-1背包" class="headerlink" title="0-1背包"></a>0-1背包</h6><h6 id="完全背包"><a href="#完全背包" class="headerlink" title="完全背包"></a>完全背包</h6><h6 id="多重背包"><a href="#多重背包" class="headerlink" title="多重背包"></a>多重背包</h6><p>​    const dp = Array(m).fill().map(item =&gt; Array(n))</p>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Yang Wa</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/2022/10/11/动态规划类问题/">http://example.com/2022/10/11/动态规划类问题/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AE%97%E6%B3%95/">算法</a><a class="post-meta__tags" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">动态规划</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2022/11/07/%E4%BD%95%E4%B8%BACDN/"><i class="fa fa-chevron-left">  </i><span>何为CDN</span></a></div><div class="next-post pull-right"><a href="/2022/10/10/%E7%A7%81%E5%8C%85%E7%9A%84%E5%BC%80%E5%8F%91%E4%B8%8E%E4%B8%8A%E7%BA%BF/"><span>私包的开发与上线</span><i class="fa fa-chevron-right"></i></a></div></nav><div id="disqus_thread"></div><script>var unused = null;
+var disqus_config = function () {
+  this.page.url = 'http://example.com/2022/10/11/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%B1%BB%E9%97%AE%E9%A2%98/';
+  this.page.identifier = '2022/10/11/动态规划类问题/';
+  this.page.title = '动态规划类问题';
+}
+var d = document, s = d.createElement('script');
+s.src = "https://" + 'boji' +".disqus.com/embed.js";
+s.setAttribute('data-timestamp', '' + +new Date());
+(d.head || d.body).appendChild(s);</script><script id="dsq-count-scr" src="https://boji.disqus.com/count.js" async></script></div></div><footer class="footer-bg" style="background-image: url(https://qianrui-xiaoyang.oss-cn-hangzhou.aliyuncs.com/img/blog/5.jpeg)"><div class="layout" id="footer"><div class="copyright">&copy;2022 - 2023 By Yang Wa</div><div class="framework-info"><span>Driven - </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="busuanzi"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><span id="busuanzi_container_page_pv"><i class="fa fa-file"></i><span id="busuanzi_value_page_pv"></span><span></span></span></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/lib/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.9.1"></script><script src="/js/fancybox.js?version=1.9.1"></script><script src="/js/sidebar.js?version=1.9.1"></script><script src="/js/copy.js?version=1.9.1"></script><script src="/js/fireworks.js?version=1.9.1"></script><script src="/js/transition.js?version=1.9.1"></script><script src="/js/scroll.js?version=1.9.1"></script><script src="/js/head.js?version=1.9.1"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script></body></html>
