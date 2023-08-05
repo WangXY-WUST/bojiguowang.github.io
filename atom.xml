@@ -3,11 +3,11 @@
   <title>Yang Wa</title>
   
   <subtitle>Who killed me, and I killed who</subtitle>
-  <link href="http://example.com/atom.xml" rel="self"/>
+  <link href="https://blog.wxywxy.cn/atom.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
-  <updated>2023-08-05T03:37:14.596Z</updated>
-  <id>http://example.com/</id>
+  <link href="https://blog.wxywxy.cn/"/>
+  <updated>2023-08-05T05:58:31.132Z</updated>
+  <id>https://blog.wxywxy.cn/</id>
   
   <author>
     <name>Yang Wa</name>
@@ -18,12 +18,12 @@
   
   <entry>
     <title>ThreeJS</title>
-    <link href="http://example.com/2023/08/05/ThreeJS/"/>
-    <id>http://example.com/2023/08/05/ThreeJS/</id>
+    <link href="https://blog.wxywxy.cn/2023/08/05/ThreeJS/"/>
+    <id>https://blog.wxywxy.cn/2023/08/05/ThreeJS/</id>
     <published>2023-08-05T01:31:13.000Z</published>
-    <updated>2023-08-05T03:37:14.596Z</updated>
+    <updated>2023-08-05T05:58:31.132Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="入门使用"><a href="#入门使用" class="headerlink" title="入门使用"></a>入门使用</h3><ol><li><p>一个动画被创建有三个基本要素: 场景、相机、物体</p><p>所以接下来,先创建一个动画主要有以下几个步骤</p><ol><li>建立场景</li><li>定义相机，相机可以理解为我们看的视角<ol><li>设置相机位置</li><li>添加相机到场景</li></ol></li><li>创建物体<ol><li>创建几何体</li><li>定义几何体的材质</li><li>通过网格对象Mesh创建物体</li><li>将物体添加到场景中</li></ol></li><li>开始渲染<ol><li>初始化渲染器</li><li>设置渲染尺寸大小</li><li>初始化的渲染器中会生成一个canvas节点，将该节点添加到body中</li><li>通过渲染器渲染场景和相机</li></ol></li><li>结束</li></ol><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> <span class="variable constant_">THREE</span> <span class="keyword">from</span> <span class="string">&#x27;three&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 建立场景</span></span><br><span class="line"><span class="keyword">const</span> scene = <span class="keyword">new</span> <span class="variable constant_">THREE</span>.<span class="title class_">Scene</span>()</span><br><span class="line"><span class="comment">// 定义一个相机</span></span><br><span class="line"><span class="keyword">const</span> camera = <span class="keyword">new</span> <span class="variable constant_">THREE</span>.<span class="title class_">PerspectiveCamera</span>(<span class="number">75</span>, <span class="variable language_">window</span>.<span class="property">innerWidth</span> / <span class="variable language_">window</span>.<span class="property">innerHeight</span>, <span class="number">0.1</span>, <span class="number">1000</span>)</span><br><span class="line"><span class="comment">// 设置相机位置</span></span><br><span class="line">camera.<span class="property">position</span>.<span class="title function_">set</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">10</span>)</span><br><span class="line"><span class="comment">// 添加相机到场景</span></span><br><span class="line">scene.<span class="title function_">add</span>(camera)</span><br><span class="line"><span class="comment">// 定义几何体</span></span><br><span class="line"><span class="keyword">const</span> geometry = <span class="keyword">new</span> <span class="variable constant_">THREE</span>.<span class="title class_">BoxGeometry</span>(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line"><span class="comment">// 定义材质</span></span><br><span class="line"><span class="keyword">const</span> material = <span class="keyword">new</span> <span class="variable constant_">THREE</span>.<span class="title class_">MeshBasicMaterial</span>(&#123; <span class="attr">color</span>: <span class="number">0x00ff00</span> &#125;)</span><br><span class="line"><span class="comment">// 根据材质和几何创建物体</span></span><br><span class="line"><span class="keyword">const</span> cube = <span class="keyword">new</span> <span class="variable constant_">THREE</span>.<span class="title class_">Mesh</span>(geometry, material)</span><br><span class="line"><span class="comment">// 将物体添加到场景中</span></span><br><span class="line">scene.<span class="title function_">add</span>(cube)</span><br><span class="line"><span class="comment">// 初始化渲染器</span></span><br><span class="line"><span class="keyword">const</span> renderer = <span class="keyword">new</span> <span class="variable constant_">THREE</span>.<span class="title class_">WebGL1Renderer</span>()</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(renderer)</span><br><span class="line"><span class="comment">// 设置渲染尺寸大小</span></span><br><span class="line">renderer.<span class="title function_">setSize</span>(<span class="variable language_">window</span>.<span class="property">innerWidth</span>, <span class="variable language_">window</span>.<span class="property">innerHeight</span>)</span><br><span class="line"><span class="comment">// webgl会渲染会生成一个canvas节点,将节点添加到body中</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(renderer.<span class="property">domElement</span>)</span><br><span class="line"><span class="comment">// 渲染相机和场景</span></span><br><span class="line">renderer.<span class="title function_">render</span>(scene, camera)</span><br></pre></td></tr></table></figure></li></ol><h3 id="轨道控制器"><a href="#轨道控制器" class="headerlink" title="轨道控制器"></a>轨道控制器</h3><ol><li><p>轨道控制器的作用就是可以使我们以3D视角拖动查看创建的动画，相当于一个卫星轨道</p></li><li><p>轨道控制器OrbitControls主要传递两个参数：哪个相机，围绕哪个物体。</p></li><li><p>如果不每一帧都重新渲染的话，页面就是静态的，所以使用requestAnimationFrame，每一帧就调用一次render</p><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">OrbitControls</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;three/examples/jsm/controls/OrbitControls.js&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> control = <span class="keyword">new</span> <span class="title class_">OrbitControls</span>(camera, renderer.<span class="property">domElement</span>)</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">render</span> () &#123;</span><br><span class="line"><span class="comment">// 渲染相机和场景</span></span><br><span class="line">renderer.<span class="title function_">render</span>(scene, camera)</span><br><span class="line">  <span class="title function_">requestAnimationFrame</span>(render)</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">render</span>()</span><br></pre></td></tr></table></figure></li></ol><h3 id="辅助坐标系"><a href="#辅助坐标系" class="headerlink" title="辅助坐标系"></a>辅助坐标系</h3><ol><li><p>效果就是有一个三维坐标系</p><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> axesHelper = <span class="keyword">new</span> <span class="variable constant_">THREE</span>.<span class="title class_">AxesHelper</span>(<span class="number">5</span>)</span><br><span class="line">scene.<span class="title function_">add</span>(axesHelper)</span><br></pre></td></tr></table></figure></li></ol><h3 id="物体移动"><a href="#物体移动" class="headerlink" title="物体移动"></a>物体移动</h3><ol><li><p>之前通过Mash创建的物体cube，在控制台输出如下，其中position控制物体移动，scale控制物体缩放，rotation控制物体旋转</p><p><img src="https://qianrui-xiaoyang.oss-cn-hangzhou.aliyuncs.com/img/channelsoft/image-20230805113314729.png" alt="image-20230805113314729"></p></li><li><p>使用</p><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//移动</span></span><br><span class="line">cube.<span class="property">position</span>.<span class="title function_">set</span>(<span class="number">100</span>,<span class="number">100</span>,<span class="number">100</span>)</span><br><span class="line">or</span><br><span class="line">cube.<span class="property">position</span>.<span class="property">x</span> = <span class="number">1</span></span><br><span class="line">cube.<span class="property">position</span>.<span class="property">y</span> = <span class="number">1</span></span><br><span class="line">cube.<span class="property">position</span>.<span class="property">z</span> = <span class="number">1</span></span><br><span class="line"><span class="comment">//缩放</span></span><br><span class="line">cube.<span class="property">scale</span>.<span class="title function_">set</span>(<span class="number">100</span>,<span class="number">100</span>,<span class="number">100</span>)</span><br><span class="line">or</span><br><span class="line">cube.<span class="property">scale</span>.<span class="property">x</span> = <span class="number">1</span></span><br><span class="line">cube.<span class="property">scale</span>.<span class="property">y</span> = <span class="number">1</span></span><br><span class="line">cube.<span class="property">scale</span>.<span class="property">z</span> = <span class="number">1</span></span><br><span class="line"><span class="comment">//旋转</span></span><br><span class="line">cube.<span class="property">rotation</span>.<span class="title function_">set</span>(<span class="number">100</span>,<span class="number">100</span>,<span class="number">100</span>)</span><br><span class="line">or</span><br><span class="line">cube.<span class="property">rotation</span>.<span class="property">x</span> = <span class="number">1</span></span><br><span class="line">cube.<span class="property">rotation</span>.<span class="property">y</span> = <span class="number">1</span></span><br><span class="line">cube.<span class="property">rotation</span>.<span class="property">z</span> = <span class="number">1</span></span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    <content type="html"><![CDATA[<h3 id="入门使用"><a href="#入门使用" class="headerlink" title="入门使用"></a>入门使用</h3><ol><li><p>一个动画被创建有三个基本要素: 场景、相机、物体</p><p>所以接下来,先创建一个动画主要有以下几个步骤</p><ol><li>建立场景</li><li>定义相机，相机可以理解为我们看的视角<ol><li>设置相机位置</li><li>添加相机到场景</li></ol></li><li>创建物体<ol><li>创建几何体</li><li>定义几何体的材质</li><li>通过网格对象Mesh创建物体</li><li>将物体添加到场景中</li></ol></li><li>开始渲染<ol><li>初始化渲染器</li><li>设置渲染尺寸大小</li><li>初始化的渲染器中会生成一个canvas节点，将该节点添加到body中</li><li>通过渲染器渲染场景和相机</li></ol></li><li>结束</li></ol><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> <span class="variable constant_">THREE</span> <span class="keyword">from</span> <span class="string">&#x27;three&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 建立场景</span></span><br><span class="line"><span class="keyword">const</span> scene = <span class="keyword">new</span> <span class="variable constant_">THREE</span>.<span class="title class_">Scene</span>()</span><br><span class="line"><span class="comment">// 定义一个相机</span></span><br><span class="line"><span class="keyword">const</span> camera = <span class="keyword">new</span> <span class="variable constant_">THREE</span>.<span class="title class_">PerspectiveCamera</span>(<span class="number">75</span>, <span class="variable language_">window</span>.<span class="property">innerWidth</span> / <span class="variable language_">window</span>.<span class="property">innerHeight</span>, <span class="number">0.1</span>, <span class="number">1000</span>)</span><br><span class="line"><span class="comment">// 设置相机位置</span></span><br><span class="line">camera.<span class="property">position</span>.<span class="title function_">set</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">10</span>)</span><br><span class="line"><span class="comment">// 添加相机到场景</span></span><br><span class="line">scene.<span class="title function_">add</span>(camera)</span><br><span class="line"><span class="comment">// 定义几何体</span></span><br><span class="line"><span class="keyword">const</span> geometry = <span class="keyword">new</span> <span class="variable constant_">THREE</span>.<span class="title class_">BoxGeometry</span>(<span class="number">1</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line"><span class="comment">// 定义材质</span></span><br><span class="line"><span class="keyword">const</span> material = <span class="keyword">new</span> <span class="variable constant_">THREE</span>.<span class="title class_">MeshBasicMaterial</span>(&#123; <span class="attr">color</span>: <span class="number">0x00ff00</span> &#125;)</span><br><span class="line"><span class="comment">// 根据材质和几何创建物体</span></span><br><span class="line"><span class="keyword">const</span> cube = <span class="keyword">new</span> <span class="variable constant_">THREE</span>.<span class="title class_">Mesh</span>(geometry, material)</span><br><span class="line"><span class="comment">// 将物体添加到场景中</span></span><br><span class="line">scene.<span class="title function_">add</span>(cube)</span><br><span class="line"><span class="comment">// 初始化渲染器</span></span><br><span class="line"><span class="keyword">const</span> renderer = <span class="keyword">new</span> <span class="variable constant_">THREE</span>.<span class="title class_">WebGL1Renderer</span>()</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(renderer)</span><br><span class="line"><span class="comment">// 设置渲染尺寸大小</span></span><br><span class="line">renderer.<span class="title function_">setSize</span>(<span class="variable language_">window</span>.<span class="property">innerWidth</span>, <span class="variable language_">window</span>.<span class="property">innerHeight</span>)</span><br><span class="line"><span class="comment">// webgl会渲染会生成一个canvas节点,将节点添加到body中</span></span><br><span class="line"><span class="variable language_">document</span>.<span class="property">body</span>.<span class="title function_">appendChild</span>(renderer.<span class="property">domElement</span>)</span><br><span class="line"><span class="comment">// 渲染相机和场景</span></span><br><span class="line">renderer.<span class="title function_">render</span>(scene, camera)</span><br></pre></td></tr></table></figure></li></ol><h3 id="轨道控制器"><a href="#轨道控制器" class="headerlink" title="轨道控制器"></a>轨道控制器</h3><ol><li><p>轨道控制器的作用就是可以使我们以3D视角拖动查看创建的动画，相当于一个卫星轨道</p></li><li><p>轨道控制器OrbitControls主要传递两个参数：哪个相机，围绕哪个物体。</p></li><li><p>如果不每一帧都重新渲染的话，页面就是静态的，所以使用requestAnimationFrame，每一帧就调用一次render</p><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">OrbitControls</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;three/examples/jsm/controls/OrbitControls.js&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> control = <span class="keyword">new</span> <span class="title class_">OrbitControls</span>(camera, renderer.<span class="property">domElement</span>)</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">render</span> () &#123;</span><br><span class="line"><span class="comment">// 渲染相机和场景</span></span><br><span class="line">renderer.<span class="title function_">render</span>(scene, camera)</span><br><span class="line">  <span class="title function_">requestAnimationFrame</span>(render)</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">render</span>()</span><br></pre></td></tr></table></figure></li></ol><h3 id="辅助坐标系"><a href="#辅助坐标系" class="headerlink" title="辅助坐标系"></a>辅助坐标系</h3><ol><li><p>效果就是有一个三维坐标系</p><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> axesHelper = <span class="keyword">new</span> <span class="variable constant_">THREE</span>.<span class="title class_">AxesHelper</span>(<span class="number">5</span>)</span><br><span class="line">scene.<span class="title function_">add</span>(axesHelper)</span><br></pre></td></tr></table></figure></li></ol><h3 id="物体移动"><a href="#物体移动" class="headerlink" title="物体移动"></a>物体移动</h3><ol><li><p>之前通过Mash创建的物体cube，在控制台输出如下，其中position控制物体移动，scale控制物体缩放，rotation控制物体旋转</p><p><img src="https://qianrui-xiaoyang.oss-cn-hangzhou.aliyuncs.com/img/channelsoft/image-20230805113314729.png" alt="cube属性"></p></li><li><p>使用</p><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//移动</span></span><br><span class="line">cube.<span class="property">position</span>.<span class="title function_">set</span>(<span class="number">100</span>,<span class="number">100</span>,<span class="number">100</span>)</span><br><span class="line">or</span><br><span class="line">cube.<span class="property">position</span>.<span class="property">x</span> = <span class="number">1</span></span><br><span class="line">cube.<span class="property">position</span>.<span class="property">y</span> = <span class="number">1</span></span><br><span class="line">cube.<span class="property">position</span>.<span class="property">z</span> = <span class="number">1</span></span><br><span class="line"><span class="comment">//缩放</span></span><br><span class="line">cube.<span class="property">scale</span>.<span class="title function_">set</span>(<span class="number">100</span>,<span class="number">100</span>,<span class="number">100</span>)</span><br><span class="line">or</span><br><span class="line">cube.<span class="property">scale</span>.<span class="property">x</span> = <span class="number">1</span></span><br><span class="line">cube.<span class="property">scale</span>.<span class="property">y</span> = <span class="number">1</span></span><br><span class="line">cube.<span class="property">scale</span>.<span class="property">z</span> = <span class="number">1</span></span><br><span class="line"><span class="comment">//旋转</span></span><br><span class="line">cube.<span class="property">rotation</span>.<span class="title function_">set</span>(<span class="number">100</span>,<span class="number">100</span>,<span class="number">100</span>)</span><br><span class="line">or</span><br><span class="line">cube.<span class="property">rotation</span>.<span class="property">x</span> = <span class="number">1</span></span><br><span class="line">cube.<span class="property">rotation</span>.<span class="property">y</span> = <span class="number">1</span></span><br><span class="line">cube.<span class="property">rotation</span>.<span class="property">z</span> = <span class="number">1</span></span><br></pre></td></tr></table></figure></li></ol>]]></content>
     
     
       
@@ -35,25 +35,25 @@
     
     
     
-    <category term="前端" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="动画" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/%E5%8A%A8%E7%94%BB/"/>
+    <category term="动画" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/%E5%8A%A8%E7%94%BB/"/>
     
-    <category term="ThreeJS" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/%E5%8A%A8%E7%94%BB/ThreeJS/"/>
+    <category term="ThreeJS" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/%E5%8A%A8%E7%94%BB/ThreeJS/"/>
     
     
-    <category term="前端" scheme="http://example.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://blog.wxywxy.cn/tags/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="动画" scheme="http://example.com/tags/%E5%8A%A8%E7%94%BB/"/>
+    <category term="动画" scheme="https://blog.wxywxy.cn/tags/%E5%8A%A8%E7%94%BB/"/>
     
-    <category term="ThreeJS" scheme="http://example.com/tags/ThreeJS/"/>
+    <category term="ThreeJS" scheme="https://blog.wxywxy.cn/tags/ThreeJS/"/>
     
   </entry>
   
   <entry>
     <title>Pinia:Vue的状态管理库</title>
-    <link href="http://example.com/2023/07/31/Pinia-Vue%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E5%BA%93/"/>
-    <id>http://example.com/2023/07/31/Pinia-Vue%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E5%BA%93/</id>
+    <link href="https://blog.wxywxy.cn/2023/07/31/Pinia-Vue%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E5%BA%93/"/>
+    <id>https://blog.wxywxy.cn/2023/07/31/Pinia-Vue%E7%9A%84%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86%E5%BA%93/</id>
     <published>2023-07-31T02:18:26.000Z</published>
     <updated>2023-07-31T09:55:30.755Z</updated>
     
@@ -70,27 +70,27 @@
     
     
     
-    <category term="前端" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="vue3" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/vue3/"/>
+    <category term="vue3" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/vue3/"/>
     
-    <category term="状态管理" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/vue3/%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/"/>
+    <category term="状态管理" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/vue3/%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/"/>
     
-    <category term="Pinia" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/vue3/%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/Pinia/"/>
+    <category term="Pinia" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/vue3/%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/Pinia/"/>
     
     
-    <category term="前端" scheme="http://example.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://blog.wxywxy.cn/tags/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="vue3" scheme="http://example.com/tags/vue3/"/>
+    <category term="vue3" scheme="https://blog.wxywxy.cn/tags/vue3/"/>
     
-    <category term="Pinia" scheme="http://example.com/tags/Pinia/"/>
+    <category term="Pinia" scheme="https://blog.wxywxy.cn/tags/Pinia/"/>
     
   </entry>
   
   <entry>
     <title>Ionic+vue3的使用</title>
-    <link href="http://example.com/2023/07/22/Ionic%E7%BB%84%E4%BB%B6%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>http://example.com/2023/07/22/Ionic%E7%BB%84%E4%BB%B6%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/</id>
+    <link href="https://blog.wxywxy.cn/2023/07/22/Ionic%E7%BB%84%E4%BB%B6%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
+    <id>https://blog.wxywxy.cn/2023/07/22/Ionic%E7%BB%84%E4%BB%B6%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8/</id>
     <published>2023-07-22T01:03:30.000Z</published>
     <updated>2023-07-22T11:34:42.000Z</updated>
     
@@ -104,27 +104,27 @@
     
     
     
-    <category term="前端" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="组件库" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/%E7%BB%84%E4%BB%B6%E5%BA%93/"/>
+    <category term="组件库" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/%E7%BB%84%E4%BB%B6%E5%BA%93/"/>
     
-    <category term="vue3" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/%E7%BB%84%E4%BB%B6%E5%BA%93/vue3/"/>
+    <category term="vue3" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/%E7%BB%84%E4%BB%B6%E5%BA%93/vue3/"/>
     
     
-    <category term="前端" scheme="http://example.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://blog.wxywxy.cn/tags/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="组件库" scheme="http://example.com/tags/%E7%BB%84%E4%BB%B6%E5%BA%93/"/>
+    <category term="组件库" scheme="https://blog.wxywxy.cn/tags/%E7%BB%84%E4%BB%B6%E5%BA%93/"/>
     
-    <category term="vue3" scheme="http://example.com/tags/vue3/"/>
+    <category term="vue3" scheme="https://blog.wxywxy.cn/tags/vue3/"/>
     
-    <category term="ionic" scheme="http://example.com/tags/ionic/"/>
+    <category term="ionic" scheme="https://blog.wxywxy.cn/tags/ionic/"/>
     
   </entry>
   
   <entry>
     <title>cordova使用</title>
-    <link href="http://example.com/2023/07/20/cordova/"/>
-    <id>http://example.com/2023/07/20/cordova/</id>
+    <link href="https://blog.wxywxy.cn/2023/07/20/cordova/"/>
+    <id>https://blog.wxywxy.cn/2023/07/20/cordova/</id>
     <published>2023-07-20T03:06:12.000Z</published>
     <updated>2023-07-22T11:34:08.000Z</updated>
     
@@ -138,25 +138,25 @@
     
     
     
-    <category term="前端" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="cordova" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/cordova/"/>
+    <category term="cordova" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/cordova/"/>
     
-    <category term="移动端框架" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/cordova/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%A1%86%E6%9E%B6/"/>
+    <category term="移动端框架" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/cordova/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%A1%86%E6%9E%B6/"/>
     
     
-    <category term="前端" scheme="http://example.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://blog.wxywxy.cn/tags/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="移动端框架" scheme="http://example.com/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%A1%86%E6%9E%B6/"/>
+    <category term="移动端框架" scheme="https://blog.wxywxy.cn/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E6%A1%86%E6%9E%B6/"/>
     
-    <category term="cordova" scheme="http://example.com/tags/cordova/"/>
+    <category term="cordova" scheme="https://blog.wxywxy.cn/tags/cordova/"/>
     
   </entry>
   
   <entry>
     <title>vue3</title>
-    <link href="http://example.com/2023/07/18/vue3/"/>
-    <id>http://example.com/2023/07/18/vue3/</id>
+    <link href="https://blog.wxywxy.cn/2023/07/18/vue3/"/>
+    <id>https://blog.wxywxy.cn/2023/07/18/vue3/</id>
     <published>2023-07-18T03:45:12.000Z</published>
     <updated>2023-07-18T13:29:04.000Z</updated>
     
@@ -170,21 +170,21 @@
     
     
     
-    <category term="前端" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="vue3" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/vue3/"/>
+    <category term="vue3" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/vue3/"/>
     
     
-    <category term="前端" scheme="http://example.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://blog.wxywxy.cn/tags/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="vue3" scheme="http://example.com/tags/vue3/"/>
+    <category term="vue3" scheme="https://blog.wxywxy.cn/tags/vue3/"/>
     
   </entry>
   
   <entry>
     <title>小知识总结(持续更新)</title>
-    <link href="http://example.com/2023/07/18/%E5%B0%8F%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
-    <id>http://example.com/2023/07/18/%E5%B0%8F%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/</id>
+    <link href="https://blog.wxywxy.cn/2023/07/18/%E5%B0%8F%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/"/>
+    <id>https://blog.wxywxy.cn/2023/07/18/%E5%B0%8F%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/</id>
     <published>2023-07-18T03:45:12.000Z</published>
     <updated>2023-08-04T10:19:13.573Z</updated>
     
@@ -198,21 +198,21 @@
     
     
     
-    <category term="前端" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="开发知识" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/%E5%BC%80%E5%8F%91%E7%9F%A5%E8%AF%86/"/>
+    <category term="开发知识" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/%E5%BC%80%E5%8F%91%E7%9F%A5%E8%AF%86/"/>
     
     
-    <category term="前端" scheme="http://example.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://blog.wxywxy.cn/tags/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="开发知识" scheme="http://example.com/tags/%E5%BC%80%E5%8F%91%E7%9F%A5%E8%AF%86/"/>
+    <category term="开发知识" scheme="https://blog.wxywxy.cn/tags/%E5%BC%80%E5%8F%91%E7%9F%A5%E8%AF%86/"/>
     
   </entry>
   
   <entry>
     <title>关于node-sass安装问题</title>
-    <link href="http://example.com/2023/07/10/%E5%85%B3%E4%BA%8Enode-sass%E5%AE%89%E8%A3%85%E9%97%AE%E9%A2%98/"/>
-    <id>http://example.com/2023/07/10/%E5%85%B3%E4%BA%8Enode-sass%E5%AE%89%E8%A3%85%E9%97%AE%E9%A2%98/</id>
+    <link href="https://blog.wxywxy.cn/2023/07/10/%E5%85%B3%E4%BA%8Enode-sass%E5%AE%89%E8%A3%85%E9%97%AE%E9%A2%98/"/>
+    <id>https://blog.wxywxy.cn/2023/07/10/%E5%85%B3%E4%BA%8Enode-sass%E5%AE%89%E8%A3%85%E9%97%AE%E9%A2%98/</id>
     <published>2023-07-10T03:45:12.000Z</published>
     <updated>2023-07-18T13:26:16.000Z</updated>
     
@@ -226,21 +226,21 @@
     
     
     
-    <category term="前端" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="node-sass安装" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/node-sass%E5%AE%89%E8%A3%85/"/>
+    <category term="node-sass安装" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/node-sass%E5%AE%89%E8%A3%85/"/>
     
     
-    <category term="前端" scheme="http://example.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://blog.wxywxy.cn/tags/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="node-sass" scheme="http://example.com/tags/node-sass/"/>
+    <category term="node-sass" scheme="https://blog.wxywxy.cn/tags/node-sass/"/>
     
   </entry>
   
   <entry>
     <title>简单的移动端适配</title>
-    <link href="http://example.com/2023/07/07/%E7%AE%80%E5%8D%95%E7%9A%84%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D/"/>
-    <id>http://example.com/2023/07/07/%E7%AE%80%E5%8D%95%E7%9A%84%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D/</id>
+    <link href="https://blog.wxywxy.cn/2023/07/07/%E7%AE%80%E5%8D%95%E7%9A%84%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D/"/>
+    <id>https://blog.wxywxy.cn/2023/07/07/%E7%AE%80%E5%8D%95%E7%9A%84%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D/</id>
     <published>2023-07-07T03:45:12.000Z</published>
     <updated>2023-07-18T13:27:02.000Z</updated>
     
@@ -255,21 +255,21 @@
     
     
     
-    <category term="前端" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="移动端适配" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D/"/>
+    <category term="移动端适配" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D/"/>
     
     
-    <category term="前端" scheme="http://example.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://blog.wxywxy.cn/tags/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="移动端" scheme="http://example.com/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/"/>
+    <category term="移动端" scheme="https://blog.wxywxy.cn/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/"/>
     
   </entry>
   
   <entry>
     <title>Parcel与Webpack</title>
-    <link href="http://example.com/2023/06/21/Parcel%E4%B8%8EWebpack/"/>
-    <id>http://example.com/2023/06/21/Parcel%E4%B8%8EWebpack/</id>
+    <link href="https://blog.wxywxy.cn/2023/06/21/Parcel%E4%B8%8EWebpack/"/>
+    <id>https://blog.wxywxy.cn/2023/06/21/Parcel%E4%B8%8EWebpack/</id>
     <published>2023-06-21T10:24:46.000Z</published>
     <updated>2023-08-05T01:26:36.909Z</updated>
     
@@ -283,25 +283,25 @@
     
     
     
-    <category term="前端" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="parcel" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/parcel/"/>
+    <category term="parcel" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/parcel/"/>
     
     
-    <category term="前端" scheme="http://example.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://blog.wxywxy.cn/tags/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="打包工具" scheme="http://example.com/tags/%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7/"/>
+    <category term="打包工具" scheme="https://blog.wxywxy.cn/tags/%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7/"/>
     
-    <category term="parcel" scheme="http://example.com/tags/parcel/"/>
+    <category term="parcel" scheme="https://blog.wxywxy.cn/tags/parcel/"/>
     
-    <category term="Webpack" scheme="http://example.com/tags/Webpack/"/>
+    <category term="Webpack" scheme="https://blog.wxywxy.cn/tags/Webpack/"/>
     
   </entry>
   
   <entry>
     <title>兼容性问题记录</title>
-    <link href="http://example.com/2022/11/10/%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
-    <id>http://example.com/2022/11/10/%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</id>
+    <link href="https://blog.wxywxy.cn/2022/11/10/%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/"/>
+    <id>https://blog.wxywxy.cn/2022/11/10/%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</id>
     <published>2022-11-10T07:06:09.000Z</published>
     <updated>2023-06-21T10:28:14.000Z</updated>
     
@@ -316,25 +316,25 @@
     
     
     
-    <category term="前端" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="性能优化" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    <category term="性能优化" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
     
-    <category term="webpack" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/webpack/"/>
+    <category term="webpack" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/webpack/"/>
     
     
-    <category term="前端" scheme="http://example.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://blog.wxywxy.cn/tags/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="webpack" scheme="http://example.com/tags/webpack/"/>
+    <category term="webpack" scheme="https://blog.wxywxy.cn/tags/webpack/"/>
     
-    <category term="性能优化" scheme="http://example.com/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    <category term="性能优化" scheme="https://blog.wxywxy.cn/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
     
   </entry>
   
   <entry>
     <title>webpack的externals</title>
-    <link href="http://example.com/2022/11/10/webpack%E7%9A%84externals/"/>
-    <id>http://example.com/2022/11/10/webpack%E7%9A%84externals/</id>
+    <link href="https://blog.wxywxy.cn/2022/11/10/webpack%E7%9A%84externals/"/>
+    <id>https://blog.wxywxy.cn/2022/11/10/webpack%E7%9A%84externals/</id>
     <published>2022-11-10T06:56:41.000Z</published>
     <updated>2022-11-10T08:32:58.000Z</updated>
     
@@ -349,25 +349,25 @@
     
     
     
-    <category term="前端" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="性能优化" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    <category term="性能优化" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
     
-    <category term="webpack" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/webpack/"/>
+    <category term="webpack" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/webpack/"/>
     
     
-    <category term="前端" scheme="http://example.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://blog.wxywxy.cn/tags/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="webpack" scheme="http://example.com/tags/webpack/"/>
+    <category term="webpack" scheme="https://blog.wxywxy.cn/tags/webpack/"/>
     
-    <category term="性能优化" scheme="http://example.com/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    <category term="性能优化" scheme="https://blog.wxywxy.cn/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
     
   </entry>
   
   <entry>
     <title>何为CDN</title>
-    <link href="http://example.com/2022/11/07/%E4%BD%95%E4%B8%BACDN/"/>
-    <id>http://example.com/2022/11/07/%E4%BD%95%E4%B8%BACDN/</id>
+    <link href="https://blog.wxywxy.cn/2022/11/07/%E4%BD%95%E4%B8%BACDN/"/>
+    <id>https://blog.wxywxy.cn/2022/11/07/%E4%BD%95%E4%B8%BACDN/</id>
     <published>2022-11-07T02:21:04.000Z</published>
     <updated>2022-11-07T03:55:14.000Z</updated>
     
@@ -382,23 +382,23 @@
     
     
     
-    <category term="前端" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="性能优化" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    <category term="性能优化" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
     
-    <category term="CDN" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/CDN/"/>
+    <category term="CDN" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/CDN/"/>
     
     
-    <category term="性能优化" scheme="http://example.com/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    <category term="性能优化" scheme="https://blog.wxywxy.cn/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
     
-    <category term="CDN" scheme="http://example.com/tags/CDN/"/>
+    <category term="CDN" scheme="https://blog.wxywxy.cn/tags/CDN/"/>
     
   </entry>
   
   <entry>
     <title>java学习基础</title>
-    <link href="http://example.com/2022/11/03/java/"/>
-    <id>http://example.com/2022/11/03/java/</id>
+    <link href="https://blog.wxywxy.cn/2022/11/03/java/"/>
+    <id>https://blog.wxywxy.cn/2022/11/03/java/</id>
     <published>2022-11-03T03:45:12.000Z</published>
     <updated>2023-07-31T10:01:52.144Z</updated>
     
@@ -414,21 +414,21 @@
     
     
     
-    <category term="后端" scheme="http://example.com/categories/%E5%90%8E%E7%AB%AF/"/>
+    <category term="后端" scheme="https://blog.wxywxy.cn/categories/%E5%90%8E%E7%AB%AF/"/>
     
-    <category term="java" scheme="http://example.com/categories/%E5%90%8E%E7%AB%AF/java/"/>
+    <category term="java" scheme="https://blog.wxywxy.cn/categories/%E5%90%8E%E7%AB%AF/java/"/>
     
     
-    <category term="后端" scheme="http://example.com/tags/%E5%90%8E%E7%AB%AF/"/>
+    <category term="后端" scheme="https://blog.wxywxy.cn/tags/%E5%90%8E%E7%AB%AF/"/>
     
-    <category term="java" scheme="http://example.com/tags/java/"/>
+    <category term="java" scheme="https://blog.wxywxy.cn/tags/java/"/>
     
   </entry>
   
   <entry>
     <title>动态规划类问题</title>
-    <link href="http://example.com/2022/10/11/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%B1%BB%E9%97%AE%E9%A2%98/"/>
-    <id>http://example.com/2022/10/11/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%B1%BB%E9%97%AE%E9%A2%98/</id>
+    <link href="https://blog.wxywxy.cn/2022/10/11/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%B1%BB%E9%97%AE%E9%A2%98/"/>
+    <id>https://blog.wxywxy.cn/2022/10/11/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%B1%BB%E9%97%AE%E9%A2%98/</id>
     <published>2022-10-11T03:43:07.000Z</published>
     <updated>2022-10-15T15:12:50.000Z</updated>
     
@@ -443,21 +443,21 @@
     
     
     
-    <category term="算法" scheme="http://example.com/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="算法" scheme="https://blog.wxywxy.cn/categories/%E7%AE%97%E6%B3%95/"/>
     
-    <category term="动态规划" scheme="http://example.com/categories/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    <category term="动态规划" scheme="https://blog.wxywxy.cn/categories/%E7%AE%97%E6%B3%95/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
     
-    <category term="动态规划" scheme="http://example.com/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+    <category term="动态规划" scheme="https://blog.wxywxy.cn/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
-    <category term="算法" scheme="http://example.com/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="算法" scheme="https://blog.wxywxy.cn/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>私包的开发与上线</title>
-    <link href="http://example.com/2022/10/10/%E7%A7%81%E5%8C%85%E7%9A%84%E5%BC%80%E5%8F%91%E4%B8%8E%E4%B8%8A%E7%BA%BF/"/>
-    <id>http://example.com/2022/10/10/%E7%A7%81%E5%8C%85%E7%9A%84%E5%BC%80%E5%8F%91%E4%B8%8E%E4%B8%8A%E7%BA%BF/</id>
+    <link href="https://blog.wxywxy.cn/2022/10/10/%E7%A7%81%E5%8C%85%E7%9A%84%E5%BC%80%E5%8F%91%E4%B8%8E%E4%B8%8A%E7%BA%BF/"/>
+    <id>https://blog.wxywxy.cn/2022/10/10/%E7%A7%81%E5%8C%85%E7%9A%84%E5%BC%80%E5%8F%91%E4%B8%8E%E4%B8%8A%E7%BA%BF/</id>
     <published>2022-10-10T01:02:22.000Z</published>
     <updated>2022-10-14T06:54:30.000Z</updated>
     
@@ -474,19 +474,19 @@
     
     
     
-    <category term="前端" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-    <category term="前端" scheme="http://example.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://blog.wxywxy.cn/tags/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="私包" scheme="http://example.com/tags/%E7%A7%81%E5%8C%85/"/>
+    <category term="私包" scheme="https://blog.wxywxy.cn/tags/%E7%A7%81%E5%8C%85/"/>
     
   </entry>
   
   <entry>
     <title>JavaScript中的class</title>
-    <link href="http://example.com/2022/10/03/JavaScript%E4%B8%AD%E7%9A%84class/"/>
-    <id>http://example.com/2022/10/03/JavaScript%E4%B8%AD%E7%9A%84class/</id>
+    <link href="https://blog.wxywxy.cn/2022/10/03/JavaScript%E4%B8%AD%E7%9A%84class/"/>
+    <id>https://blog.wxywxy.cn/2022/10/03/JavaScript%E4%B8%AD%E7%9A%84class/</id>
     <published>2022-10-03T03:45:12.000Z</published>
     <updated>2022-10-05T07:53:12.000Z</updated>
     
@@ -500,27 +500,27 @@
     
     
     
-    <category term="前端" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="知识点" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
+    <category term="知识点" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
     
     
-    <category term="前端" scheme="http://example.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://blog.wxywxy.cn/tags/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="class" scheme="http://example.com/tags/class/"/>
+    <category term="class" scheme="https://blog.wxywxy.cn/tags/class/"/>
     
-    <category term="继承" scheme="http://example.com/tags/%E7%BB%A7%E6%89%BF/"/>
+    <category term="继承" scheme="https://blog.wxywxy.cn/tags/%E7%BB%A7%E6%89%BF/"/>
     
-    <category term="ES6" scheme="http://example.com/tags/ES6/"/>
+    <category term="ES6" scheme="https://blog.wxywxy.cn/tags/ES6/"/>
     
-    <category term="ES5" scheme="http://example.com/tags/ES5/"/>
+    <category term="ES5" scheme="https://blog.wxywxy.cn/tags/ES5/"/>
     
   </entry>
   
   <entry>
     <title>前端知识</title>
-    <link href="http://example.com/2022/09/23/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/"/>
-    <id>http://example.com/2022/09/23/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/</id>
+    <link href="https://blog.wxywxy.cn/2022/09/23/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/"/>
+    <id>https://blog.wxywxy.cn/2022/09/23/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86/</id>
     <published>2022-09-23T00:48:04.000Z</published>
     <updated>2022-11-30T05:28:48.000Z</updated>
     
@@ -534,31 +534,31 @@
     
     
     
-    <category term="前端" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="知识点" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
+    <category term="知识点" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/%E7%9F%A5%E8%AF%86%E7%82%B9/"/>
     
     
-    <category term="前端" scheme="http://example.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://blog.wxywxy.cn/tags/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="react" scheme="http://example.com/tags/react/"/>
+    <category term="react" scheme="https://blog.wxywxy.cn/tags/react/"/>
     
-    <category term="vue" scheme="http://example.com/tags/vue/"/>
+    <category term="vue" scheme="https://blog.wxywxy.cn/tags/vue/"/>
     
-    <category term="html" scheme="http://example.com/tags/html/"/>
+    <category term="html" scheme="https://blog.wxywxy.cn/tags/html/"/>
     
-    <category term="css" scheme="http://example.com/tags/css/"/>
+    <category term="css" scheme="https://blog.wxywxy.cn/tags/css/"/>
     
-    <category term="js" scheme="http://example.com/tags/js/"/>
+    <category term="js" scheme="https://blog.wxywxy.cn/tags/js/"/>
     
-    <category term="框架" scheme="http://example.com/tags/%E6%A1%86%E6%9E%B6/"/>
+    <category term="框架" scheme="https://blog.wxywxy.cn/tags/%E6%A1%86%E6%9E%B6/"/>
     
   </entry>
   
   <entry>
     <title>useState与useRef</title>
-    <link href="http://example.com/2022/09/20/useState%E4%B8%8EuseRef/"/>
-    <id>http://example.com/2022/09/20/useState%E4%B8%8EuseRef/</id>
+    <link href="https://blog.wxywxy.cn/2022/09/20/useState%E4%B8%8EuseRef/"/>
+    <id>https://blog.wxywxy.cn/2022/09/20/useState%E4%B8%8EuseRef/</id>
     <published>2022-09-20T08:46:23.000Z</published>
     <updated>2022-10-17T03:41:48.000Z</updated>
     
@@ -573,23 +573,23 @@
     
     
     
-    <category term="前端" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="react" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/react/"/>
+    <category term="react" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/react/"/>
     
     
-    <category term="前端" scheme="http://example.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://blog.wxywxy.cn/tags/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="react" scheme="http://example.com/tags/react/"/>
+    <category term="react" scheme="https://blog.wxywxy.cn/tags/react/"/>
     
-    <category term="Hook" scheme="http://example.com/tags/Hook/"/>
+    <category term="Hook" scheme="https://blog.wxywxy.cn/tags/Hook/"/>
     
   </entry>
   
   <entry>
     <title>回溯法</title>
-    <link href="http://example.com/2022/09/19/%E5%9B%9E%E6%BA%AF%E6%B3%95/"/>
-    <id>http://example.com/2022/09/19/%E5%9B%9E%E6%BA%AF%E6%B3%95/</id>
+    <link href="https://blog.wxywxy.cn/2022/09/19/%E5%9B%9E%E6%BA%AF%E6%B3%95/"/>
+    <id>https://blog.wxywxy.cn/2022/09/19/%E5%9B%9E%E6%BA%AF%E6%B3%95/</id>
     <published>2022-09-19T08:44:02.000Z</published>
     <updated>2022-10-13T01:11:40.000Z</updated>
     
@@ -604,21 +604,21 @@
     
     
     
-    <category term="算法" scheme="http://example.com/categories/%E7%AE%97%E6%B3%95/"/>
+    <category term="算法" scheme="https://blog.wxywxy.cn/categories/%E7%AE%97%E6%B3%95/"/>
     
-    <category term="回溯法" scheme="http://example.com/categories/%E7%AE%97%E6%B3%95/%E5%9B%9E%E6%BA%AF%E6%B3%95/"/>
+    <category term="回溯法" scheme="https://blog.wxywxy.cn/categories/%E7%AE%97%E6%B3%95/%E5%9B%9E%E6%BA%AF%E6%B3%95/"/>
     
     
-    <category term="算法" scheme="http://example.com/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="算法" scheme="https://blog.wxywxy.cn/tags/%E7%AE%97%E6%B3%95/"/>
     
-    <category term="回溯法" scheme="http://example.com/tags/%E5%9B%9E%E6%BA%AF%E6%B3%95/"/>
+    <category term="回溯法" scheme="https://blog.wxywxy.cn/tags/%E5%9B%9E%E6%BA%AF%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>uni-app开发中的问题</title>
-    <link href="http://example.com/2022/07/31/uni/"/>
-    <id>http://example.com/2022/07/31/uni/</id>
+    <link href="https://blog.wxywxy.cn/2022/07/31/uni/"/>
+    <id>https://blog.wxywxy.cn/2022/07/31/uni/</id>
     <published>2022-07-31T02:18:26.000Z</published>
     <updated>2023-07-31T10:03:46.283Z</updated>
     
@@ -633,14 +633,14 @@
     
     
     
-    <category term="前端" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="uni-app" scheme="http://example.com/categories/%E5%89%8D%E7%AB%AF/uni-app/"/>
+    <category term="uni-app" scheme="https://blog.wxywxy.cn/categories/%E5%89%8D%E7%AB%AF/uni-app/"/>
     
     
-    <category term="前端" scheme="http://example.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://blog.wxywxy.cn/tags/%E5%89%8D%E7%AB%AF/"/>
     
-    <category term="uni-app" scheme="http://example.com/tags/uni-app/"/>
+    <category term="uni-app" scheme="https://blog.wxywxy.cn/tags/uni-app/"/>
     
   </entry>
   
